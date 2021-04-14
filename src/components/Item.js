@@ -1,10 +1,11 @@
-import React, {Component} from "react";
-import PropTypes          from 'prop-types';
-import { Link }           from "react-router-dom";
+import React, {PureComponent} from "react";
+import PropTypes              from 'prop-types';
+import { Link }               from "react-router-dom";
 
-class Item extends Component{
+class Item extends PureComponent{
 	render(){
 		const { id, thumbnail, title } = this.props.data;
+		console.log('RENDER ITEM ID:',id)
 		return (<Link className="grid-item-link" to={`/${id}`}>
 			<div className="grid-item" >
 				<img className="preview-image" src={thumbnail} alt={title}/>

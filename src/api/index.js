@@ -1,5 +1,4 @@
 const FAKE_DELAY = 2000;
-const FAKE_THUMBNAIL = 'https://rickandmortyapi.com/api/character/';
 const FAKE_DATA = [
 	{	
 		id:0,
@@ -53,32 +52,12 @@ export const addVideo = (newVideo) => new Promise((resolve, reject) => {
 	},FAKE_DELAY);
 });
  
-// export const getVideos = () => new Promise((resolve, reject) => {	
-// 	setTimeout(() => { 
-// 		return resolve(FAKE_DATA);
-// 	},FAKE_DELAY);
-// });
-// Return a image from server
-const getThumbnail = async () => {
-	try{
-		const resp = await fetch(FAKE_THUMBNAIL);
-		return resp.json();
-	}catch(error){
-		throw error;
-	}
-}
-export const getVideos = ()=> new Promise((resolve, reject)=>
-{
-getThumbnail().then(data => 
-  {
-    const characters = data.results
-    FAKE_DATA.forEach((el, i) => {
-      el.thumbnail = characters[i].image
-    })
-    return resolve(FAKE_DATA)
-  })
-})
-// Return a description from server
+export const getVideos = () => new Promise((resolve, reject) => {	
+	setTimeout(() => { 
+		return resolve(FAKE_DATA);
+	},FAKE_DELAY);
+});
+
 const getDescription = async () => {
 	try{
 		const resp = await fetch('https://baconipsum.com/api/?type=all-meat&paras=3&start-with-lorem=1');
